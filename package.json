@@ -1,7 +1,33 @@
 {
-  "name": "log-service",
+  "name": "@preethamb97/physical-device-log-service",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "description": "A robust logging service for physical devices with built-in security features",
+  "main": "src/sdk/LogServiceSDK.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "src/sdk",
+    "types", 
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "logging",
+    "physical-devices",
+    "iot",
+    "device-logs", 
+    "secure-logging",
+    "queue-management"
+  ],
+  "author": "Preetham B <preethamb97@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preethamb97/Physical-Device-Log-Service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/preethamb97/Physical-Device-Log-Service/issues"
+  },
+  "homepage": "https://github.com/preethamb97/Physical-Device-Log-Service#readme",
   "dependencies": {
     "better-queue": "^3.8.12",
     "better-queue-memory": "^1.0.4",
@@ -17,17 +43,24 @@
     "localtunnel": "^2.0.2",
     "morgan": "^1.10.0",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "node-fetch": "^2.6.1"
+  },
+  "peerDependencies": {
+    "node-fetch": "^2.6.1"
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "start": "node src/index.js", 
     "start:pm2": "pm2 start ecosystem.config.js",
     "stop:pm2": "pm2 stop ecosystem.config.js",
     "restart:pm2": "pm2 restart ecosystem.config.js",
     "monitor": "pm2 monit",
     "tunnel:local": "TUNNEL_TYPE=localtunnel NODE_ENV=development node src/index.js",
-    "tunnel:cloudflare": "TUNNEL_TYPE=cloudflare NODE_ENV=development node src/index.js"
+    "tunnel:cloudflare": "TUNNEL_TYPE=cloudflare NODE_ENV=development node src/index.js",
+    "publish:patch": "node scripts/publish.js patch",
+    "publish:minor": "node scripts/publish.js minor", 
+    "publish:major": "node scripts/publish.js major"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
