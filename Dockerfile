@@ -26,11 +26,11 @@ RUN mkdir -p api-logs logs/pm2 && \
 USER node
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 5000
 
 # Set environment variables
 ENV NODE_ENV=production \
-    PORT=3000 \
+    PORT=5000 \
     STORAGE_PATHS=api-logs \
     DEFAULT_STORAGE_PATH=api-logs
 

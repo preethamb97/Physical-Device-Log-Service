@@ -11,6 +11,8 @@ const { LOG_DIR } = require('./constants');
 const storageService = require('./services/storageService');
 const tunnelService = require('./services/tunnelService');
 const morgan = require('morgan');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -50,7 +52,10 @@ async function initializeApp() {
         // CORS protection
         app.use(cors({
             origin: process.env.ALLOWED_ORIGINS?.split(',') || '*',
-            methods: ['POST']
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+            allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+            credentials: true,
+            maxAge: 86400 // 24 hours
         }));
 
         // Prevent HTTP Parameter Pollution
@@ -89,6 +94,12 @@ async function initializeApp() {
                 : err.message;
             res.status(500).json({ error });
         });
+
+        // Swagger documentation
+        app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+            customCss: '.swagger-ui .topbar { display: none }',
+            customSiteTitle: "Log Service API Documentation"
+        }));
 
         // Start the server
         const server = app.listen(PORT, () => {

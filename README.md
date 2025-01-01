@@ -31,7 +31,7 @@ npm install
 3. **Configure environment variables**
 Create a `.env` file in the root directory:
 ```env
-PORT=3000
+PORT=5000
 NODE_ENV=development
 ALLOWED_ORIGINS=http://localhost:3000
 STORAGE_PATHS=api-logs
@@ -173,7 +173,7 @@ await logService.clearLogs(queryParams);
 ### Environment Variables
 ```env
 # Server Configuration
-PORT=3000
+PORT=5000
 NODE_ENV=development
 API_KEY_ENABLED=false
 API_KEY=your-secret-key
@@ -212,7 +212,7 @@ module.exports = {
     exec_mode: 'cluster',
     env: {
       NODE_ENV: 'production',
-      PORT: 3000
+      PORT: 5000
     },
     env_production: {
       NODE_ENV: 'production',

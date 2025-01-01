@@ -1,6 +1,6 @@
 class LogServiceSDK {
     constructor(config = {}) {
-        this.baseUrl = config.baseUrl || process.env.LOG_SERVICE_URL || 'http://localhost:3000';
+        this.baseUrl = config.baseUrl || process.env.LOG_SERVICE_URL || 'http://localhost:5000';
         this.endpoint = config.endpoint || '/api/logData';
         this.timeout = config.timeout || 5000; // 5 seconds default timeout
     }
