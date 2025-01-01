@@ -73,6 +73,24 @@ const logService = require('./sdk/LogServiceSDK');
 await logService.logData('request-123', 'Log message');
 ```
 
+## 🛠 API Documentation
+
+The service includes comprehensive API documentation using Swagger/OpenAPI. You can access the interactive API documentation at: http://localhost:5000/api-docs
+
+The documentation provides:
+- Detailed endpoint descriptions
+- Request/response schemas
+- Interactive API testing interface
+- Authentication requirements
+- Example requests and responses
+
+### Features
+- Interactive UI for testing endpoints
+- Request/response validation schemas
+- Detailed parameter descriptions
+- Support for all API operations
+- Customizable theme and layout
+
 ## 🛠️ Development Options
 
 ### Running with Tunnels
